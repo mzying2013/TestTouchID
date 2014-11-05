@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,78 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="指纹识别" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="c2q-tp-QxX">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulR-GE-FzA">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="aeC-4q-ELq"/>
+                                </constraints>
+                                <state key="normal" title="TouchID">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aeC-4q-ELq"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="aeC-4q-ELq"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="touchIDAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UQk-gi-zcL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c2q-tp-QxX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="65" id="Oyn-sN-ywB"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ulR-GE-FzA" secondAttribute="bottom" constant="297" id="VNv-gw-kBa"/>
+                            <constraint firstItem="ulR-GE-FzA" firstAttribute="top" secondItem="c2q-tp-QxX" secondAttribute="bottom" constant="63" id="YZA-VK-0RV"/>
+                            <constraint firstItem="ulR-GE-FzA" firstAttribute="centerX" secondItem="c2q-tp-QxX" secondAttribute="centerX" id="aYY-9i-sE9"/>
+                            <constraint firstItem="ulR-GE-FzA" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="vcv-gG-hIe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="c2q-tp-QxX"/>
+                                <exclude reference="ulR-GE-FzA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Oyn-sN-ywB"/>
+                                <exclude reference="YZA-VK-0RV"/>
+                                <exclude reference="aYY-9i-sE9"/>
+                                <exclude reference="vcv-gG-hIe"/>
+                                <exclude reference="VNv-gw-kBa"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="c2q-tp-QxX"/>
+                                <include reference="ulR-GE-FzA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Oyn-sN-ywB"/>
+                                <include reference="YZA-VK-0RV"/>
+                                <include reference="aYY-9i-sE9"/>
+                                <include reference="vcv-gG-hIe"/>
+                                <include reference="VNv-gw-kBa"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="touchIDResult" destination="c2q-tp-QxX" id="jx8-JI-qS6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="672" y="410.25"/>
         </scene>
     </scenes>
 </document>
